@@ -1,19 +1,27 @@
 import { createActions, createReducer } from "reduxsauce";
 
 const { Types, Creators } = createActions({
-  setTest: ["test"],
-  getData: ["param1", "param2"],
+  setAllMovies: ["allMovies"],
+  getAllMovies: ["lang"],
+  //
+  getSingleMovie: ["id"],
+  setSingleMovie: ["singleMovie"],
 });
 
 export const AuthTypes = Types;
 export default Creators;
 
 const INITIAL_STATE = {
-  test: "test",
+  allMovies: [],
+  singleMovie: {},
 };
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.SET_TEST]: (state, { test }) => ({
+  SET_ALL_MOVIES: (state, { allMovies }) => ({
     ...state,
-    test,
+    allMovies,
+  }),
+  SET_SINGLE_MOVIE: (state, { singleMovie }) => ({
+    ...state,
+    singleMovie,
   }),
 });

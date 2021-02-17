@@ -1,15 +1,19 @@
-import { put, call, delay, select } from "redux-saga/effects";
+import { put, call } from "redux-saga/effects";
 import AuthActions from "../models/auth";
-import MainActions from "../models/main";
 
-import { getDataReq } from "services/auth";
+import * as AuthReq from "services/auth";
 
-export function* getData({ param1, param2 }) {
-  const response = yield call(getDataReq, param1, param2);
-  const testData = yield select((state) => state.auth.test);
+export function* getAllMovies({ lang }) {
+  const response = yield call(AuthReq.fetchAllMovies, lang);
 
   if (response) {
-    console.log("response", response);
-    yield put(AuthActions.setTest({ response, testData }));
+    yield put(AuthActions.setAllMovies(response.data));
+  }
+}
+
+export function* getSingleMovie({ id }) {
+  const response = yield call(AuthReq.fechSingleMovie, id);
+  if (response) {
+    yield put(AuthActions.setSingleMovie(response.data));
   }
 }

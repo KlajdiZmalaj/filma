@@ -1,0 +1,106 @@
+//
+.home {
+  display: flex;
+  flex-flow: column;
+  background-color: #0c0f18;
+  &--nav {
+    color: #fff;
+    font-size: 50px;
+    text-align: center;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &--movie {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 15px;
+    &__item {
+      display: flex;
+      flex-flow: column;
+      width: calc(100% / 5 - 10px);
+      cursor: pointer;
+      margin: 5px;
+      overflow: hidden;
+      border-radius: 5px;
+      position: relative;
+      align-items: stretch;
+      justify-content: flex-end;
+      background-color: #0000004a;
+
+      img {
+        transition: 0.3s;
+      }
+      .title {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 30px;
+        font-size: 13px;
+        background-color: #302b27;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 0 5px;
+      }
+      .infos {
+        position: absolute;
+        top: 0;
+        z-index: 2;
+        display: none;
+        top: 0;
+        left: 0;
+        height: 100%;
+        span {
+          color: #fff;
+          padding: 10px;
+          height: calc(100% - 30px);
+          overflow: auto;
+        }
+      }
+      &:after {
+        background-color: #00000070;
+        z-index: 1;
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: calc(100% - 30px);
+        backdrop-filter: blur(10px);
+        width: 100%;
+        opacity: 0;
+        transition: 0.3s;
+      }
+      &:hover {
+        &:after {
+          content: " ";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: calc(100% - 30px);
+          backdrop-filter: blur(10px);
+          opacity: 1;
+        }
+        .infos {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #f5f3f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1b264f;
+}
