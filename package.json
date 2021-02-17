@@ -1,8 +1,8 @@
 {
-  "description": "aplication",
-  "author": "Altech Solutions",
+  "description": "klajdi",
+  "author": "test",
   "build": {
-    "appId": "altechsolutions.al"
+    "appId": "test"
   },
   "name": "app",
   "version": "0.1.0",
