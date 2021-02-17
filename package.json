@@ -30,7 +30,7 @@
     "react-test": "react-scripts test --env=jsdom",
     "react-eject": "react-scripts eject",
     "release": "npm run react-build",
-    "build": "GENERATE_SOURCEMAP=false cross-env NODE_PATH=src npm run react-build",
+    "build": "cross-env NODE_PATH=src npm run react-build GENERATE_SOURCEMAP=false",
     "start": "cross-env NODE_PATH=src npm run react-start"
   },
   "eslintConfig": {
